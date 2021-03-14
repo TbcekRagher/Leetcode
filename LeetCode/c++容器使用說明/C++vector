@@ -1,0 +1,49 @@
+https://coaoy.github.io/2017/08/30/vector/
+建構子
+include <vector>
+int main()
+{
+    vector<int> a1;                 a1代表宣告一個空的整數 陣列
+	vector<int> a2(SIZE);           a2代表宣告一個有SIZE個 整數空間的陣列
+    vector<int> a2.2(SIZE,0);       a2.2 代表宣告一個有SIZE個0的整數陣列
+	vector<int> a3[SIZE];	        a3代表宣告一個可以存SIZE個整數 陣列的 陣列
+	vector<vector<int> > a4(SIZE);  a4代表宣告一個SIZE X SIZE 大小的二維動態矩陣
+	vector<vector<int> > a5(heigh,  vector<int> (weigh));a5則是宣告一個 長寬為3X5的整數 陣列
+}
+vector<Data_Type> v;
+v.push_back(Data_Type X):將資料X放入vector尾端
+v.pop_back() :將vector尾端資料移除
+v.begin() : 回傳vector起始位置
+v.end()   : 回傳vector尾端位置
+v.front() : 回傳vector起始元素之參照
+v.back()  : 回傳vector末端元素之參照
+v.at(i)   :回傳vector第i個元素
+v.insert():塞入數值，函式本身有多個overloading有興去請參照reference
+v.erase() :移除數值，同上
+v.clear() :清除vector元素不過本身其實不會釋放記憶體所以建議用swap
+v.swap()  :交換vector元素，清空方法如下 
+vector<int>().swap(v);
+這樣就會把vector v清空
+v.size()  :回傳vector大小
+v.empty() :回傳vector是否有元素
+v.resize():重新定義vector大小，詳細內容同insert
+
+
+ex :
+    for(int i = 0 ; i < n ; i++){nums.insert(nums.begin()+i,s[i]);}
+    //插入會從指定的位置與下一個中間插入，
+ex :
+    nums.erase(nums.begin()+2);
+    //刪除會把該位置的節點刪除，並把上家和下家串再一起
+    0 1 2 3 4
+    cout << *(nums.begin()+2) <<endl;
+    nums.erase(nums.begin()+2);
+    cout << *(nums.begin()+2)<<endl;
+    //把2刪掉，跑到第三行的會印出 3 
+    //0 1 3 4
+ex :
+     for(vector<int>::iterator it = nums.begin()+1 ; it != nums.end() ; )
+    {   if (*it == 5)
+            {nums.erase(it);}
+    }
+    //當你在迭代時進行erease刪除it會自動變成原本的下家的it所以不需要額外it++
