@@ -1,0 +1,8 @@
+S:classical
+A:recurrsive prob
+B:need to think many case   || easy Learned recurrsive
+C:fixed way to do and very easy
+D:too easy
+E:Ridiculous 
+
+with f means I think I don't truely know the whole detail of the prob.
